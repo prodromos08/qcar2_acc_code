@@ -208,24 +208,28 @@ Ensure `/amcl_pose` publisher count is 1.
 
 ---
 
-## Current Status
+## Development Status
 
-Working:
-- Static map localization
-- AMCL
-- Nav2 goal navigation
-- Command conversion to QCar2 motor interface
-- Waypoint following
-- Basic lane control
-- Taxi mission structure
+Due to time constraints and the complexity of integrating multiple subsystems (localization, navigation, perception, and mission logic), a fully stable end-to-end autonomous taxi run was not achieved within the intended timeline.
 
-In Progress:
-- Improved costmap corridor stability
-- ODESSA depth-based adaptive cruise control
-- Traffic sign integration refinement
-- Full autonomous taxi demonstration run
+Core subsystems were developed and tested independently, including:
 
----
+- Static map localization using AMCL  
+- Nav2-based goal navigation  
+- Command conversion to QCar2 motor interface  
+- Mission state machine structure  
+- Basic lane control  
+
+However, full integration revealed instability primarily in:
+
+- Costmap corridor tuning for consistent lane-safe navigation  
+- TF synchronization across complete bringup  
+- Perception-to-motion gating reliability  
+- End-to-end mission stability under repeated runs  
+
+The architecture and modular design are in place, and the remaining effort focuses on integration robustness and system stabilization rather than missing foundational components.
+
+This repository represents a functional research and development stack currently undergoing refinement and validation.
 
 ## Competition Objective
 
